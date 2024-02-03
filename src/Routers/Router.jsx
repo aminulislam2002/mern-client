@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout";
 import Home from "../Pages/HomePage/Home/Home";
 import YoutubeTagsExtractor from "../Pages/HomePage/ToolsSectionPages/YoutubeTagsExtractor.JSX";
+import YoutubeThumbnailExtractor from "../Pages/HomePage/ToolsSectionPages/YoutubeThumbnailExtractor";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/tools/youtube-tags-extractor",
         element: <YoutubeTagsExtractor></YoutubeTagsExtractor>,
+      },
+      {
+        path: "/tools/youtube-thumbnail-extractor",
+        element: <YoutubeThumbnailExtractor></YoutubeThumbnailExtractor>,
       },
     ],
   },

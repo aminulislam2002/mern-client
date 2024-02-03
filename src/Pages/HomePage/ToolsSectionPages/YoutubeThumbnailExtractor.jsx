@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-const YoutubeTagsExtractor = () => {
+const YoutubeThumbnailExtractor = () => {
   const [videoUrl, setVideoUrl] = useState("");
-  const [tags, setTags] = useState([]);
+  const [thumbnails, setThumbnails] = useState({});
 
   const handleInputChange = (e) => {
     setVideoUrl(e.target.value);
   };
 
-  const handleExtractTags = async () => {
-    const res = await fetch("http://localhost:5000/videoLinkForYoutubeTags", {
+  const handleExtractThumbnail = async () => {
+    const res = await fetch("http://localhost:5000/videoLinkForYoutubeThumbnail", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -17,13 +17,16 @@ const YoutubeTagsExtractor = () => {
       body: JSON.stringify({ videoUrl }),
     });
     const data = await res.json();
-    setTags(data);
+
+    setThumbnails(data);
   };
+
+  console.log(thumbnails?.high?.url);
 
   return (
     <div className="bg-gray-100 min-h-screen flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6 text-center">YouTube Tags Extractor</h1>
+        <h1 className="text-2xl font-bold mb-6 text-center">Youtube Thumbnail Extractor</h1>
 
         <div className="mb-4">
           <form>
@@ -38,21 +41,17 @@ const YoutubeTagsExtractor = () => {
         </div>
 
         <button
-          onClick={handleExtractTags}
+          onClick={handleExtractThumbnail}
           className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
         >
-          Extract Tags
+          Extract Thumbnail
         </button>
 
-        {tags.length > 0 && (
+        {thumbnails?.high?.url && (
           <div className="mt-6">
-            <h3 className="text-xl font-semibold mb-2">Extracted Tags:</h3>
+            <h3 className="text-xl font-semibold mb-2">Extracted Thumbnail:</h3>
             <ul>
-              {tags.map((tag, index) => (
-                <li key={index} className="text-gray-700">
-                  {tag}
-                </li>
-              ))}
+              <img src={thumbnails?.high?.url} alt="Thumbnails" />
             </ul>
           </div>
         )}
@@ -61,4 +60,4 @@ const YoutubeTagsExtractor = () => {
   );
 };
 
-export default YoutubeTagsExtractor;
+export default YoutubeThumbnailExtractor;
