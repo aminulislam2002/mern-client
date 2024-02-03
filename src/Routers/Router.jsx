@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout";
 import Home from "../Pages/HomePage/Home/Home";
+import YoutubeTagsExtractor from "../Pages/HomePage/ToolsSectionPages/YoutubeTagsExtractor.JSX";
 
 const router = createBrowserRouter([
   {
@@ -8,8 +9,12 @@ const router = createBrowserRouter([
     element: <MainLayout></MainLayout>,
     children: [
       {
-        path: "/",
+        path: "",
         element: <Home></Home>,
+      },
+      {
+        path: "/tools/youtube-tags-extractor",
+        element: <YoutubeTagsExtractor></YoutubeTagsExtractor>,
       },
     ],
   },
