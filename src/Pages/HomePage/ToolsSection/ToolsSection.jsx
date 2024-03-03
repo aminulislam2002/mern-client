@@ -52,15 +52,10 @@ const toolsData = [
     slug: "free-youtube-subscribers",
   },
   {
-    title: "Youtube Thumbnail Extractor",
+    title: "Youtube Video Details Extractor",
     description:
       "Extract Youtube Thumbnail from any video of youtube at any time. High-quality youtube thumbnail extractor.",
-    slug: "youtube-thumbnail-extractor",
-  },
-  {
-    title: "Youtube Tags Extractor",
-    description: "Extract youtube video tags online at high quality. Youtube video tags extractor.",
-    slug: "youtube-tags-extractor",
+    slug: "youtube-video-details-extractor",
   },
 ];
 
